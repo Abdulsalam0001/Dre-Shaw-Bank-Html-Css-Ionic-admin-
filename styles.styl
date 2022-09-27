@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap');
+color-1= white
+color-2= hsl(220, 16%, 96%)
+color-3= hsl(0, 0%, 98%)
+color-4= blue
+white-color= white
+text-color-dark= hsl(233, 26%, 24%)
+text-color= gray
+primary-font= 'Public Sans', sans-serif;
+button-color= hsl(136, 65%, 51%)
+// - Lime Green:
+// - Bright Cyan: hsl(192, 70%, 51%)
+
+
+// - Grayish Blue: hsl(233, 8%, 62%)
+// - Light Grayish Blue: hsl(220, 16%, 96%)
+// - Very Light Gray: hsl(0, 0%, 98%)
+// - White:
+navbar-height= 80px
+body
+  overflow-x: hidden;
+  color: text-color
+  font-family: primary-font
+.btn
+  background-color: button-color
+  color: white-color
+  font-weight: 700
+.navbar
+  background-color: white-color
+  height: navbar-height
+
+.section
+  position: relative;
+  background-color: color-1
+  h1
+    font-size: 45px;
+    color: text-color-dark;
+  &__wrapper
+    overflow: hidden;
+  &__content
+    padding-top: 8vw;
+    padding-bottom: 8vw;
+  &--intro
+    height: "calc(100vh - %s)" % navbar-height
+    @media (max-width: 480px)
+      height: auto
+      padding-bottom: 10vw;
+    .section__content
+      padding-top: 0;
+      padding-bottom: 0;
+  &--1
+    background-color: color-1
+  &--2
+    background-color: color-2
+  &--3
+    background-color: color-3
+
+.wrapper
+  height: 100%
+  overflow: hidden;
+.intro
+  &__content
+    display: grid;
+    place-items: center;
+  &__img
+    margin-top: -21vw
+    width: 150%
+  &__img-float
+    position: absolute;
+    z-index: 1;
+    @media (min-width: 320px)
+      right: 5vw
+      width: 90vw
+      top: -28vw
+    @media (min-width: 480px)
+      right: -7vw;
+      top: -9vw;
+      width: 55vw;
+
+.card
+  &__img
+    margin: 20px 0;
+  &__title
+    font-size: 28px;
+    margin: 0.5em 0;
+
+.article-card
+  border: none;
+  &__img
+    height: 200px;
+    img
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+  &__author
+    font-size: 11px;
+  &__title
+    font-size: 18px;
+
+.footer
+  display: flex;
+  align-items: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background-color: text-color-dark;
+  height: 2.2 * navbar-height;
+  @media (max-width: 480px)
+    height: auto;
+  color: white-color;
+  &__left, &__right
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  &__center
+    ul
+      display: grid;
+      grid-template-columns: 1fr 1fr
+      @media (max-width: 480px)
+        grid-template-columns: 1fr
+      width: 50%
+      height: 100%;
+      margin: 0
+      list-style: none
+      padding: 0
+  &__icons
+    @media (max-width: 480px)
+      width: 200px
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      span
+        margin-right: 0

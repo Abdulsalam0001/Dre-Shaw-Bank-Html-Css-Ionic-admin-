@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap");
+body {
+  overflow-x: hidden;
+  color: #808080;
+  font-family: 'Public Sans', sans-serif;
+}
+.btn {
+  background-color: #31d35c;
+  color: #fff;
+  font-weight: 700;
+}
+.navbar {
+  background-color: #fff;
+  height: 80px;
+}
+.section {
+  position: relative;
+  background-color: #fff;
+}
+.section h1 {
+  font-size: 45px;
+  color: #2d314d;
+}
+.section__wrapper {
+  overflow: hidden;
+}
+.section__content {
+  padding-top: 8vw;
+  padding-bottom: 8vw;
+}
+.section--intro {
+  height: calc(100vh - 80px);
+}
+@media (max-width: 480px) {
+  .section--intro {
+    height: auto;
+    padding-bottom: 10vw;
+  }
+}
+.section--intro .section__content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.section--1 {
+  background-color: #fff;
+}
+.section--2 {
+  background-color: #f3f4f6;
+}
+.section--3 {
+  background-color: #fafafa;
+}
+.wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+.intro__content {
+  display: grid;
+  place-items: center;
+}
+.intro__img {
+  margin-top: -21vw;
+  width: 150%;
+}
+.intro__img-float {
+  position: absolute;
+  z-index: 1;
+}
+@media (min-width: 320px) {
+  .intro__img-float {
+    right: 5vw;
+    width: 90vw;
+    top: -28vw;
+  }
+}
+@media (min-width: 480px) {
+  .intro__img-float {
+    right: -7vw;
+    top: -9vw;
+    width: 55vw;
+  }
+}
+.card__img {
+  margin: 20px 0;
+}
+.card__title {
+  font-size: 28px;
+  margin: 0.5em 0;
+}
+.article-card {
+  border: none;
+}
+.article-card__img {
+  height: 200px;
+}
+.article-card__img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.article-card__author {
+  font-size: 11px;
+}
+.article-card__title {
+  font-size: 18px;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background-color: #2d314d;
+  height: 176px;
+  color: #fff;
+}
+@media (max-width: 480px) {
+  .footer {
+    height: auto;
+  }
+}
+.footer__left,
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footer__center ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+@media (max-width: 480px) {
+  .footer__center ul {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .footer__icons {
+    width: 200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer__icons span {
+    margin-right: 0;
+  }
+}
