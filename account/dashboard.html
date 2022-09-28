@@ -80,9 +80,9 @@
               <ion-modal trigger="open-modal" swipe-to-close="true">
                 <ion-header>
                   <ion-toolbar>
-                    <ion-button onclick="dismisss()">Cancel</ion-button>
+                    <ion-button onclick="dismiss()">Cancel</ion-button>
                     <ion-buttons slot="end">
-                      <ion-button onclick="dismiss()">Send money</ion-button>
+                      <ion-button onclick="dismisss()">Send money</ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -90,7 +90,7 @@
                 <ion-content class="ion-padding">
                   <ion-item>
                     <ion-label position="stacked">$ Amount to send</ion-label>
-                    <ion-input type="number" placeholder="$100"></ion-input>
+                    <ion-input type="number" placeholder="minimum $100"></ion-input>
                   </ion-item>
                   <ion-item>
                     <ion-label position="stacked">Financial Institution number</ion-label>
@@ -104,13 +104,7 @@
                   </ion-item> <ion-item>
                     <ion-label position="stacked">Transfer Pin</ion-label>
                     <ion-input type="text" placeholder="Six digit security pin"></ion-input>
-                  </ion-item>             
-                  <ion-buttons slot="end">
-                    <ion-button onclick="dismisss()">Cancel</ion-button>
-                </ion-buttons>
-
-
-
+                  </ion-item>
                 </ion-content>
               </ion-modal>
             </ion-content>
@@ -124,34 +118,30 @@
   function dismiss() {
     modal.dismiss();
     const message = document.querySelector('#message');
+        message.textContent = `error incorrect transfer pin code ,mutiple invalid pin would lead to suspenion`;
+  }
+  function dismisss() {
     swal({
   title: "Are you sure?",
-  text: "Once deleted, you will not be able to recover this imaginary file!",
+  text: "Please confirm you are sending to the right account number once a transfer is intiatied it cannot be stopped",
   icon: "warning",
   buttons: true,
   dangerMode: true,
 })
 .then((willDelete) => {
   if (willDelete) {
-    swal("Error! incorrect pin transfer failed !", {
-      icon: "error ",
+    swal("Poof! incorrect transfer pin", {
+      icon: "error",
     });
   } else {
     swal("Your funds are safe!");
   }
 });
   }
-  function dismisss() {
-    return role === 'confirm';
-        modal.dismiss();
-
-    const message = document.querySelector('#message');
-        message.textContent = `Get started with our simple and fast transfers `;
-  }
   async function promptClose() {
     const actionSheet = document.createElement('ion-action-sheet');
 
-    actionSheet.header = 'Please confirm you are sending to the right account number once a transfer is intiatied it cannot be stopped';
+    actionSheet.header = 'Please confirm you are trying to cancel transfer';
     actionSheet.buttons = [
       {
         text: 'Yes Proceed  ',
