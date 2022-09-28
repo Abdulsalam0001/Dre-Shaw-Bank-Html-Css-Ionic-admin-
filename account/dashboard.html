@@ -84,7 +84,7 @@
             
            
             <ion-content class="ion-padding">
-              <ion-button id="open-modal" expand="block">WIthdraw </ion-button>
+              <ion-button id="open-modal" expand="block">Withdraw </ion-button>
               <p id="message"> Get Started with our easy transfer </p>
               <ion-modal trigger="open-modal">
                 <ion-header>
@@ -92,7 +92,7 @@
                     <ion-buttons slot="start">
                       <ion-button onclick="cancel()">Cancel</ion-button>
                     </ion-buttons>
-                    <ion-title>Welcome</ion-title>
+                    <ion-title>Transfer Funds </ion-title>
                     <ion-buttons slot="end">
                       <ion-button onclick="confirm()" strong="true">Confirm</ion-button>
                     </ion-buttons>
@@ -100,7 +100,11 @@
                 </ion-header>
                 <ion-content class="ion-padding">
                   <ion-item>
-                    <ion-label position="stacked">Enter your name</ion-label>
+                    <ion-label position="stacked">Amount</ion-label>
+                    <ion-input type="text" placeholder="Your name"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="stacked">Account Number</ion-label>
                     <ion-input type="text" placeholder="Your name"></ion-input>
                   </ion-item>
                 </ion-content>
