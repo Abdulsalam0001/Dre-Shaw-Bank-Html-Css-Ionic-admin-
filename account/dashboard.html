@@ -90,7 +90,7 @@
                 <ion-content class="ion-padding">
                   <ion-item>
                     <ion-label position="stacked">$ Amount to send</ion-label>
-                    <ion-input type="number" placeholder="minimum $100"></ion-input>
+                    <ion-input type="number" placeholder="$100"></ion-input>
                   </ion-item>
                   <ion-item>
                     <ion-label position="stacked">Financial Institution number</ion-label>
@@ -104,7 +104,13 @@
                   </ion-item> <ion-item>
                     <ion-label position="stacked">Transfer Pin</ion-label>
                     <ion-input type="text" placeholder="Six digit security pin"></ion-input>
-                  </ion-item>
+                  </ion-item>             
+                  <ion-buttons slot="end">
+                    <ion-button onclick="dismisss()">Cancel</ion-button>
+                </ion-buttons>
+
+
+
                 </ion-content>
               </ion-modal>
             </ion-content>
@@ -121,8 +127,8 @@
         message.textContent = `error incorrect transfer pin code ,mutiple invalid pin would lead to suspenion`;
   }
   function dismisss() {
-    modal.canDismiss = true;
-    modal.dismiss();
+    return role === 'confirm';
+        modal.dismiss();
 
     const message = document.querySelector('#message');
         message.textContent = `Get started with our simple and fast transfers `;
@@ -133,7 +139,7 @@
     actionSheet.header = 'Please confirm you are sending to the right account number once a transfer is intiatied it cannot be stopped';
     actionSheet.buttons = [
       {
-        text: 'Yes Proceed w ',
+        text: 'Yes Proceed  ',
         role: 'confirm',
       },
       {
