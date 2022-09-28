@@ -121,7 +121,7 @@
         message.textContent = `error incorrect transfer pin code ,mutiple invalid pin would lead to suspenion`;
   }
   function dismisss() {
-    modal.dismiss();
+    window.location.reload(); 
     const message = document.querySelector('#message');
         message.textContent = `Get started with our simple and fast transfers `;
   }
@@ -131,11 +131,11 @@
     actionSheet.header = 'Please confirm you are sending to the right account number once a transfer is intiatied it cannot be stopped';
     actionSheet.buttons = [
       {
-        text: 'Yes Proceed ',
+        text: 'Yes Proceed with transfer ',
         role: 'confirm',
       },
       {
-        text: 'No cancel',
+        text: 'No cancel transfer',
         role: 'cancel',
       },
     ];
