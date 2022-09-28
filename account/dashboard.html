@@ -124,9 +124,22 @@
   function dismiss() {
     modal.dismiss();
     const message = document.querySelector('#message');
-        message.textContent = `mutiple invalid pin would lead to suspenion`;
-        swal("Good job!", "You clicked the button!", "success");
-
+    swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this imaginary file!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Error! incorrect pin transfer failed !", {
+      icon: "error ",
+    });
+  } else {
+    swal("Your funds are safe!");
+  }
+});
   }
   function dismisss() {
     return role === 'confirm';
