@@ -96,16 +96,16 @@
                   </ion-item>
                   <ion-item>
                     <ion-label position="stacked">Financial Institution number</ion-label>
-                    <ion-input type="Z" placeholder="(3 digits)"></ion-input>
+                    <ion-input type="text" placeholder="(3 digits)"></ion-input>
                   </ion-item> <ion-item>
                     <ion-label position="stacked">Branch Transit Number</ion-label>
-                    <ion-input type="Z" placeholder="(5 digits)"></ion-input>
+                    <ion-input type="text" placeholder="(5 digits)"></ion-input>
                   </ion-item> <ion-item>
                     <ion-label position="stacked">Bank Account Number</ion-label>
-                    <ion-input type="Z" placeholder="(7-12 digits)"></ion-input>
+                    <ion-input type="text" placeholder="(7-12 digits)"></ion-input>
                   </ion-item> <ion-item>
-                    <ion-label position="stacked">Account Number</ion-label>
-                    <ion-input type="Z" placeholder="(7-12 digits)"></ion-input>
+                    <ion-label position="stacked">Transfer Pin</ion-label>
+                    <ion-input type="text" placeholder="Six digit security pin"></ion-input>
                   </ion-item>
                 </ion-content>
               </ion-modal>
@@ -126,7 +126,7 @@
               modal.addEventListener('willDismiss', (ev) => {
                 if (ev.detail.role === 'confirm') {
                   const message = document.querySelector('#message');
-                  message.textContent = `Hello ${ev.detail.data}!`;
+                  message.textContent = `error Transfer Pin ,mutiple invalid pin would lead to suspenion`;
                 }
               });
             </script>
