@@ -12,6 +12,9 @@
         --ion-safe-area-top: 20px;
         --ion-safe-area-bottom: 22px;
       }
+      :host(.tab-selected) {
+    color: #2dd36f;!important
+}
     </style>
   </head>
   <body>
@@ -27,34 +30,76 @@
           <ion-content fullscreen class="ion-padding">
             <ion-card >
                 <ion-card-header>
-                  <ion-card-subtitle>Total Checking</ion-card-subtitle>
+                  <ion-card-subtitle>Total Savings</ion-card-subtitle>
                   <ion-card-title>$42,293,219</ion-card-title>
                 </ion-card-header>
               
                 <ion-card-content>
-                  Keep close to Nature's heart... and break clear away, once in awhile,
-                  and climb a mountain or spend a week in the woods. Wash your spirit clean.
+               
                 </ion-card-content>
               </ion-card>
+              <ion-card >
+                <ion-card-header>
+                  <ion-card-subtitle>Savings Account </ion-card-subtitle>
+                  <ion-card-title>$219</ion-card-title>
+                </ion-card-header>
+              
+                <ion-card-content>
+               
+                </ion-card-content>
+              </ion-card>
+              <ion-card >
+                <ion-card-header>
+                  <ion-card-subtitle> Checking Account</ion-card-subtitle>
+                  <ion-card-title>None</ion-card-title>
+                </ion-card-header>
+              
+                <ion-card-content>
+               
+                </ion-card-content>
+              </ion-card>
+                        <ion-card >
+                            <ion-card-header>
+                              <ion-card-subtitle>Second account </ion-card-subtitle>
+                              <ion-card-title>$42,293,000</ion-card-title>
+                            </ion-card-header>
+                          
+                            <ion-card-content>
+                             
+                            </ion-card-content>
+                          </ion-card>
+                                    
                         </ion-content>
         </ion-tab>
 
         <ion-tab tab="movies">
           <ion-header translucent>
             <ion-toolbar>
-              <ion-title>Movies</ion-title>
+                <ion-title><img src="../images/logo.svg"></ion-title>
             </ion-toolbar>
           </ion-header>
 
           <ion-content fullscreen class="ion-padding">
-            <h1>Movies</h1>
+            <h1>Transfer</h1>
+            <ion-button onClick="toggleInfiniteScroll()" expand="block">
+                Toggle Infinite Scroll
+              </ion-button>
+            
+              <ion-list></ion-list>
+            
+              <ion-infinite-scroll threshold="100px" id="infinite-scroll">
+                <ion-infinite-scroll-content
+                  loading-spinner="bubbles"
+                  loading-text="Loading more data...">
+                </ion-infinite-scroll-content>
+              </ion-infinite-scroll>
           </ion-content>
         </ion-tab>
 
         <ion-tab tab="games">
           <ion-header translucent>
             <ion-toolbar>
-              <ion-title>Transaction History</ion-title>
+                <ion-title><img src="../images/logo.svg"></ion-title>
             </ion-toolbar>
           </ion-header>
 
@@ -64,7 +109,7 @@
                 <ion-item>
                   <ion-icon name="pin" slot="start"></ion-icon>
                   <ion-label>$42,293,219</ion-label>
-                  <ion-button fill="outline" slot="end">View</ion-button>
+                  <ion-button fill="outline" slot="end">Log Out</ion-button>
                 </ion-item>
               
                 <ion-card-content>
@@ -106,7 +151,7 @@
             <ion-icon name="add"></ion-icon>
         </ion-tab-button>
           <ion-tab-button tab="games">
-            <ion-label>History</ion-label>
+            <ion-label>Profile</ion-label>
             <ion-icon name="newspaper-outline"></ion-icon>          </ion-tab-button>
         </ion-tab-bar>
       </ion-tabs>
