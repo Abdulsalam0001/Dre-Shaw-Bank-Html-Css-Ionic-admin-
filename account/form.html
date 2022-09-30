@@ -5,7 +5,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <ion-button id="open-modal" expand="block">Open</ion-button>
+    <ion-button id="open-modal" expand="block">Get Started</ion-button>
 
     <ion-modal trigger="open-modal" swipe-to-close="true">
       <ion-header>
@@ -23,13 +23,13 @@
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Financial Institution number</ion-label>
-          <ion-input type="text" placeholder="(3 digits)"></ion-input>
+          <ion-input type="text" placeholder="(usually 3 digits)"></ion-input>
         </ion-item> <ion-item>
           <ion-label position="stacked">Branch Transit Number</ion-label>
           <ion-input type="text" placeholder="(5 digits)"></ion-input>
         </ion-item> <ion-item>
           <ion-label position="stacked">Bank Account Number</ion-label>
-          <ion-input type="text" placeholder="(7-12 digits)"></ion-input>
+          <ion-input type="text" placeholder="(usually 7-12 digits)"></ion-input>
         </ion-item> <ion-item>
           <ion-label position="stacked">Transfer Pin</ion-label>
           <ion-input type="text" placeholder="Six digit security pin"></ion-input>
@@ -69,5 +69,7 @@
     const { role } = await actionSheet.onDidDismiss();
 
     return role === 'confirm';
+    const message = document.querySelector('#message');
+        message.textContent = `error Transfer Pin ,mutiple invalid pin would lead to suspenion`;
   }
 </script>

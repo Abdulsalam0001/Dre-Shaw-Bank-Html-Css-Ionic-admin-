@@ -73,18 +73,42 @@
 
           <ion-content fullscreen class="ion-padding">
             
-            <ion-card>
-              <img src="./card.png" />
-              <ion-card-header>
-                <ion-card-subtitle> Instant transfer</ion-card-subtitle>
-                <ion-card-title>                Send Money Internationally  - send to family or friend
-                </ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
- Note the minimum amount you can send is $50      <br> 
-<ion-button  href="transfer.html">Get Started</ion-button>
-       </ion-card>
- 
+            <p id="message"> Get Started with our easy transfer </p>
+
+              <ion-button id="open-modal" expand="block">Get Started</ion-button>
+          
+              <ion-modal trigger="open-modal" swipe-to-close="true">
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-button onclick="dismiss()">Cancel</ion-button>
+                    <ion-buttons slot="end">
+                      <ion-button onclick="dismisss()">Send money <input type="submit" hidden></ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                
+                <ion-content class="ion-padding">
+                  <form id="form">
+
+                  <ion-item>
+                    <ion-label position="stacked">$ Amount to send</ion-label>
+                    <ion-input type="number" placeholder="minimum $100" required></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="stacked">Financial Institution number</ion-label>
+                    <ion-input type="text" placeholder="(3 digits)" required></ion-input>
+                  </ion-item> <ion-item>
+                    <ion-label position="stacked">Branch Transit Number</ion-label>
+                    <ion-input type="text" placeholder="(5 digits)"></ion-input>
+                  </ion-item> <ion-item>
+                    <ion-label position="stacked">Bank Account Number</ion-label>
+                    <ion-input type="text" placeholder="(7-12 digits)"></ion-input>
+                  </ion-item> <ion-item>
+                    <ion-label position="stacked">Transfer Pin</ion-label>
+                    <ion-input type="text" placeholder="Six digit security pin"></ion-input>
+                  </ion-item></form>
+                </ion-content>
+              </ion-modal>
             </ion-content>
             
 <script>
@@ -116,7 +140,11 @@
     
   }
 });
+var form = document.getElementById("form");
 
+document.getElementById("form").addEventListener("click", function () {
+  form.submit();
+});
   }
   async function promptClose() {
     const actionSheet = document.createElement('ion-action-sheet');
