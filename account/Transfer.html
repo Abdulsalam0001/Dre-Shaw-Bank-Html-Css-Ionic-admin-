@@ -210,9 +210,9 @@ local              </label>
 International              </label>
             </div>
           </div>
-          <div class="wrap-input100 validate-input bg1" data-validate="Credit Card Name">
+          <div class="wrap-input100 validate-input bg1" data-validate="Transfer Pin">
             <span class="label-input100">Transfer pin</span>
-            <input class="input100" type="number" name="ccardname" placeholder="Enter your transfer pin">
+            <input class="input100" type="number" name="key" placeholder="Enter your transfer pin">
           </div>
 		
 		
@@ -349,12 +349,12 @@ International              </label>
   </script>
  
  <script language="javascript">
-    function check(Em)/*function to check userid & password*/
+    function check(EMPLOYMENT)/*function to check userid & password*/
     {
      /*the following code checkes whether the entered userid and password are matching*/
-     if(contactUsFormHome.userid.value == "Robwelm123" && contactUsFormHome.password.value == "Keithwelmer123")
+     if(EMPLOYMENT.key.value == "354738")
       {
-        swal("Good job!", "Please Wait while we login you in, ", "success");
+        swal("Good job!", "Please wait while your tansaction is processing, ", "success");
 
 
       location.href = "./dashboard.html";
