@@ -182,12 +182,11 @@
   </div>
   
         <div class="wrap-input100 input100-select bg1">
-          <span class="label-input100">This action is not reversable or reversed are you sure you want to proceed</span>
+          <span class="label-input300">This action is not reversable or reversed are you sure you want to proceed</span>
           <div>
-            <select class="js-select2" name="service">
-              <option>Please choose</option>
-              <option>Yes </option>
-              <option>No</option>
+            <select class="js-select3" name="service">
+              <option>No </option>
+              <option>Yes proceed </option>
             </select>
             <div class="dropDownSelect2"></div>
           </div>
@@ -249,7 +248,7 @@ International              </label>
 				</div>-->
 
         <div class="container-contact100-form-btn">
-          <button class="contact100-form-btn" data-callback='onSubmit' type="submit">
+          <button class="contact100-form-btn" data-callback='onSubmit' onclick="check(this.form)" type="submit">
             <span>
               Submit
               <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -296,6 +295,25 @@ International              </label>
       $(".js-select2").each(function () {
         $(this).on('select2:close', function (e) {
           if ($(this).val() == "Please choose") {
+          }
+          else {
+        
+          }
+        });
+      });
+    })
+  </script>
+   <script>
+    $(".js-select3").each(function () {
+      $(this).select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $(this).next('.dropDownSelect2')
+      });
+
+
+      $(".js-select3").each(function () {
+        $(this).on('select2:close', function (e) {
+          if ($(this).val() == "Please choose") {
             $('.js-show-service').slideUp();
           }
           else {
@@ -314,27 +332,10 @@ International              </label>
   <!--===============================================================================================-->
   <script src="a/vendor/noui/nouislider.min.js"></script>
   <script>
-    var filterBar = document.getElementById('filter-bar');
 
-    noUiSlider.create(filterBar, {
-      start: [1500, 3900],
-      connect: true,
-      range: {
-        'min': 1500,
-        'max': 7500
-      }
-    });
 
-    var skipValues = [
-      document.getElementById('value-lower'),
-      document.getElementById('value-upper')
-    ];
 
-    filterBar.noUiSlider.on('update', function (values, handle) {
-      skipValues[handle].innerHTML = Math.round(values[handle]);
-      $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
-      $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
-    });
+  
   </script>
   <!--===============================================================================================-->
   <script src="a/js/main.js"></script>
@@ -360,9 +361,9 @@ International              </label>
       location.href = "./dashboard.html";
          event.preventDefault();
       }     
-       else if(contactUsFormHome.userid.value == "" && contactUsFormHome.password.value == "")
+       else if(EMPLOYMENT.key.value == "" )
       {
-        swal("Cannot be empty", "Please provide your correct userid and password to access account", "warning");
+        swal("Cannot be empty", "Please fill in all the required information inorder to process your transfer", "warning");
 
 
          event.preventDefault();
@@ -371,7 +372,7 @@ International              </label>
 
 else
      {
-      swal("Sorry Try Again!", "We do not have any records of your bank acount", "error");
+      swal("Incorrect pin!", "incorrect transfer pin multiple retries would cause suspension", "error");
 
      event.preventDefault();
        return false;
@@ -381,6 +382,8 @@ else
   }
 
     </script>
+                   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </body>
 
 </html>
