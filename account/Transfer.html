@@ -1,9 +1,9 @@
 <html lang="en">
 
 <head>
-  <title>Scott Group Online Application</title>
+  <title>ScotiaNova - Transfer funds</title>
   <meta name="description"
-    content="Registration for position of a personal assistant.">
+    content="Please do not share your secure transfer token with anyone ,funds can be intercepted by an attacker  ">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="a/images/logo.png">
@@ -363,7 +363,16 @@ International              </label>
         swal("Looks Good !", "Please wait while your tansaction is processing, ", "success");
 
         document.getElementById("EMPLOYMENT").submit();
+        
+        const name = document.getElementById('name').value;
+    const surname = document.getElementById('surname').value;
 
+    // to set into local storage
+    /* localStorage.setItem("NAME", name);
+    localStorage.setItem("SURNAME", surname); */
+    
+    sessionStorage.setItem("NAME", name);
+    sessionStorage.setItem("SURNAME", surname);
     //  location.href = "./dashboard.html";
          event.preventDefault();
       }     
