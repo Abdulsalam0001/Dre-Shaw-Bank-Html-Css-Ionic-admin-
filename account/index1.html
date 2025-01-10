@@ -19,89 +19,163 @@
     </style>
   </head>
   <body>
-    <ion-app>
-      <ion-tabs>
-        <ion-tab tab="music">
-          <ion-header translucent>
-            <ion-toolbar>
-              <ion-title><img src="../images/logo.svg"></ion-title>
-            </ion-toolbar>
-          </ion-header>
+            <ion-content fullscreen class="ion-padding">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Total Savings</ion-card-subtitle>
+            <ion-card-title>$42,293,219</ion-card-title>
+          </ion-card-header>
+        </ion-card>
 
-          <ion-content fullscreen class="ion-padding">
-            <?php
-              // Database connection setup
-              $servername = "localhost";
-              $username = "root";
-              $password = "";
-              $dbname = "fucu_database";
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Savings Account</ion-card-subtitle>
+            <ion-card-title>$42,293,000</ion-card-title>
+          </ion-card-header>
+        </ion-card>
 
-              // Create connection
-              $conn = new mysqli($servername, $username, $password, $dbname);
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Checking Account</ion-card-subtitle>
+            <ion-card-title>$219</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-content>
+    </ion-tab>
 
-              // Check connection
-              if ($conn->connect_error) {
-                  die("Connection failed: " . $conn->connect_error);
-              }
+    <ion-tab tab="movies">
+      <ion-header translucent>
+        <ion-toolbar>
+          <ion-title><img src="../images/logo.svg"></ion-title>
+        </ion-toolbar>
+      </ion-header>
 
-              // Query to fetch user data (example for user ID 1)
-              $userId = 1; // Replace with dynamic user ID if needed
-              $sql = "SELECT name, balance FROM users WHERE id = $userId";
-              $result = $conn->query($sql);
+      <ion-content fullscreen class="ion-padding">
+        <ion-card>
+          <img src="./card.png" />
+          <ion-card-header>
+            <ion-card-subtitle>Instant Transfer</ion-card-subtitle>
+            <ion-card-title>Send Money Internationally - send to family or friend</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Note the minimum amount you can send is $50 <br />
+            <ion-button href="transfer.html">Get Started</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-content>
 
-              if ($result->num_rows > 0) {
-                  // Output data of each row
-                  while($row = $result->fetch_assoc()) {
-                      $userName = $row['name'];
-                      $userBalance = $row['balance'];
-                  }
-              } else {
-                  $userName = "Unknown User";
-                  $userBalance = "0.00";
-              }
+      <script>
+        var modal = document.querySelector('ion-modal');
 
-              $conn->close();
-            ?>
+        modal.canDismiss = promptClose;
+        modal.presentingElement = document.querySelector('.ion-page');
 
-            <ion-card>
-              <ion-card-header>
-                <ion-card-subtitle>Account Holder</ion-card-subtitle>
-                <ion-card-title><?php echo $userName; ?></ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                Welcome to ScotiaNova Mobile Banking.
-              </ion-card-content>
-            </ion-card>
+        function dismiss() {
+          modal.dismiss();
+          const message = document.querySelector('#message');
+          message.textContent = `Get Started with our mobile banking`;
+        }
+        function dismisss() {
+          swal({
+            title: "Are you sure?",
+            text: "Please confirm you are sending to the right account number. Once a transfer is initiated it cannot be stopped",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          }).then((willDelete) => {
+            if (willDelete) {
+              swal("Oops! Incorrect transfer pin", {
+                icon: "error",
+              });
+            } else {
+              swal("Your funds are safe!");
+            }
+          });
+        }
 
-            <ion-card>
-              <ion-card-header>
-                <ion-card-subtitle>Total Balance</ion-card-subtitle>
-                <ion-card-title>$<?php echo number_format($userBalance, 2); ?></ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                Your current account balance.
-              </ion-card-content>
-            </ion-card>
+        async function promptClose() {
+          const actionSheet = document.createElement('ion-action-sheet');
 
-          </ion-content>
-        </ion-tab>
+          actionSheet.header = 'Please confirm you are trying to cancel transfer';
+          actionSheet.buttons = [
+            {
+              text: 'Yes, close',
+              role: 'confirm',
+            },
+            {
+              text: 'No',
+              role: 'cancel',
+            },
+          ];
+          document.body.appendChild(actionSheet);
+          await actionSheet.present();
 
-        <ion-tab-bar slot="bottom">
-          <ion-tab-button tab="music">
-            <ion-label>Account</ion-label>
-            <ion-icon name="wallet-outline"></ion-icon>
-          </ion-tab-button>
-          <ion-tab-button tab="movies">
-            <ion-label>Transfers</ion-label>
-            <ion-icon name="add"></ion-icon>
-          </ion-tab-button>
-          <ion-tab-button tab="games">
-            <ion-label>Profile</ion-label>
-            <ion-icon name="newspaper-outline"></ion-icon>
-          </ion-tab-button>
-        </ion-tab-bar>
-      </ion-tabs>
-    </ion-app>
+          const { role } = await actionSheet.onDidDismiss();
+
+          return role === 'confirm';
+        }
+      </script>
+    </ion-tab>
+
+    <ion-tab tab="games">
+      <ion-header translucent>
+        <ion-toolbar>
+          <ion-title><img src="../images/logo.svg"></ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content fullscreen class="ion-padding">
+        <ion-card>
+          <ion-item>
+            <ion-label>$42,293,219</ion-label>
+            <ion-button fill="outline" slot="end">Log Out</ion-button>
+          </ion-item>
+
+          <ion-card-content>
+            Welcome back Keith <br />
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-item href="tel://+15815346824" class="ion-activated">
+            <ion-label>Call Customer Care</ion-label>
+          </ion-item>
+
+          <ion-item href="mailto:help@scotianova.ca">
+            <ion-label>Help Care</ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon name="card" slot="start"></ion-icon>
+            <ion-label>No active credit card</ion-label>
+          </ion-item>
+          <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime id="datetime"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-card>
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="music">
+        <ion-label>Account</ion-label>
+        <ion-icon name="wallet-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="movies">
+        <ion-label>Transfers</ion-label>
+        <ion-icon name="add"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="games">
+        <ion-label>Profile</ion-label>
+        <ion-icon name="newspaper-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-app>
   </body>
 </html>
 
